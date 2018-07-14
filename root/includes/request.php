@@ -9,15 +9,14 @@ if(isset($_POST['submit']) && isset($_POST['linxname']) )
 	$linxname = $_POST['linxname'];
 	 $detail = $_POST['detail'];
 	   /* add outer details to the below sqla query user uploaddate set connection to db, check is it insert data in the db. */	 
-	  $sql = "INSERT INTO requestedlinx(u_id,user,email,link_name,detail) VALUES ( '$u_id','$uname','$e_mail','$linxname','$detail') ; ";
+	  $sql  = "INSERT INTO `requestlink` (`id`, `u_id`, `email`, `user`, `req_link`, `description`) VALUES (NULL, '$u_id', '$e_mail', '$uname', '$linxname',  '$detail');";
       $query=mysqli_query($db_conn,$sql);
-	  if($query)
-	  {
-		  
+	  if($query){
+	  
 		  header("location: ../home.php");
 		 
 	  }else{
-		  echo"no";
+		  echo "no";
 	  }
  }else 
     {  
